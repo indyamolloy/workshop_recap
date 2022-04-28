@@ -1,1 +1,0 @@
-export const dbPort = process.env.DB_PORT;
