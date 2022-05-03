@@ -15,5 +15,10 @@ let extraTips = [
   "Don't let your partner know...",
 ];
 
+//Selecting and changing quote
 const quote = document.querySelector(".quote");
 quote.innerText = "hehe";
+
+//selecting and changing style
+const h1 = document.querySelector("h1");
+h1.style.textDecoration = "underline";
