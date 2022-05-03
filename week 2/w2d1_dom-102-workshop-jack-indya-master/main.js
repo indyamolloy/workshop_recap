@@ -4,7 +4,9 @@ const output = document.querySelector("output");
 function handleClick() {
   console.log("Im just to prove it's working!");
   // Double the number of pennies
+  pennies *= 2;
   // display in the output tag
+  output.innerText = `${pennies} Pennies`;
 }
 
 let extraTips = [
