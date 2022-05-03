@@ -14,3 +14,6 @@ let extraTips = [
   "Save money buy not eating!",
   "Don't let your partner know...",
 ];
+
+const quote = document.querySelector(".quote");
+quote.innerText = "hehe";
