@@ -33,3 +33,29 @@ for (let i = 0; i < extraTips.length; i++) {
 
   tipsList.appendChild(listItem);
 }
+
+//Change title
+// document.title = "save money";
+
+//put task 5 in a function
+
+function changeTitle() {
+  document.title = "save money";
+}
+
+//click button to change title
+
+const titleButton = document.querySelector(".click-me");
+
+titleButton.addEventListener("click", changeTitle);
+
+//change h1 to input value
+function changeH1() {
+  const h1 = document.querySelector(".main-title");
+  const inputBox = document.querySelector(".input-box");
+  h1.innerText = inputBox.value;
+}
+
+const changeH1Button = document.querySelector(".change-h1");
+
+changeH1Button.addEventListener("click", changeH1);
