@@ -22,3 +22,14 @@ quote.innerText = "hehe";
 //selecting and changing style
 const h1 = document.querySelector("h1");
 h1.style.textDecoration = "underline";
+
+//creating elements
+const tipsList = document.querySelector("#tips-list");
+
+for (let i = 0; i < extraTips.length; i++) {
+  const listItem = document.createElement("li");
+
+  listItem.innerText = extraTips[i];
+
+  tipsList.appendChild(listItem);
+}
