@@ -1,11 +1,11 @@
 let animals = [
-    "baboon",
-    "kangaroo",
-    "rhino",
-    "frog",
-    "beaver",
-    "horse",
-    "basalisk",
-  ];
-  
-let bListAnimals = // Your 'filter' code here.
+  "baboon",
+  "kangaroo",
+  "rhino",
+  "frog",
+  "beaver",
+  "horse",
+  "basalisk",
+];
+
+let bListAnimals = animals.filter((animal) => animal[0] === "b");

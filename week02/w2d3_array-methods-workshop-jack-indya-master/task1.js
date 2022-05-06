@@ -1,7 +1,6 @@
 const cats = ["tony", "daisy", "socks", "rockie"];
 
-const capitalisedCats = toUpperCaseCats();
-
+//as a function
 function toUpperCaseCats() {
   let arr = [];
   for (let i = 0; i < cats.length; i++) {
@@ -10,3 +9,7 @@ function toUpperCaseCats() {
   }
   return arr;
 }
+
+//using map
+
+const capitalisedCats = cats.map((cat) => cat.toUpperCase());
