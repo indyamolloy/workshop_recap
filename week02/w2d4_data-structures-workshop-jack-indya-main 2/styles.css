@@ -1,0 +1,21 @@
+h1,
+h2 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#receipt {
+  border: 1px black solid;
+  width: 20%;
+  padding: 20px;
+  background-color: rgb(198, 198, 198);
+}

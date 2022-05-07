@@ -188,8 +188,52 @@ const receiptArray = trolley.map(function (item) {
       itemObj.name = inventory[i].name;
       itemObj.quantity = item.quantity;
       itemObj.totalPrice = inventory[i].price * item.quantity;
-      console.log(itemObj);
     }
   }
   return itemObj;
 });
+
+// The store has an offer on! If you buy 3 or more items that are the same, you can get 25% off! Build a function to do that from the above receipt. Add a discount to all elements, calculating the correct discount.
+
+function addDiscount(array) {
+  array.map(function (item) {
+    if (item.quantity >= 3) {
+      const discount = (item.totalPrice * 25) / 100;
+      item.totalPriceAfterDiscount = item.totalPrice - discount;
+    }
+  });
+}
+const discountedReceipt = addDiscount(receiptArray);
+
+// Bonus Task: Show Receipt
+// You now have the opportunity to show the receipt on screen. from the receipt built by the above tasks, please show this on the DOM (which, if you remember, is the model the browser has for what appears on screen). Think about how this might need to be styled.
+
+//calc total before the discount
+const totalArray = receiptArray.map(function (item) {
+  return item.totalPrice;
+});
+
+const totalPrice = totalArray.reduce((prev, acc) => {
+  return prev + acc;
+});
+
+//calc discount total
+
+const totalDiscountArray = receiptArray.map(function (item) {
+  if (item.totalPriceAfterDiscount === undefined) {
+    return 0;
+  } else {
+    return item.totalPriceAfterDiscount;
+  }
+});
+
+const totalDiscountPrice = totalDiscountArray.reduce((prev, acc) => {
+  return prev + acc;
+});
+
+document.querySelector(".full-total").innerText = totalPrice;
+
+document.querySelector(".discount-total").innerText =
+  totalPrice - totalDiscountPrice;
+
+document.querySelector(".price-paid").innerText = totalDiscountPrice;
