@@ -167,3 +167,29 @@ const healthyTrolley = trolley.filter(function (item) {
     }
   }
 });
+
+//remove items from trolley that are recalled
+const removeRecalledTrolley = trolley.filter(function (item) {
+  for (let i = 0; i < inventory.length; i++) {
+    let items = [];
+    if (inventory[i].id === item.id && inventory[i].recalled === false) {
+      items.push(item);
+      return items;
+    }
+  }
+});
+
+//create a receipt for customer
+
+const receiptArray = trolley.map(function (item) {
+  let itemObj = {};
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].id === item.id) {
+      itemObj.name = inventory[i].name;
+      itemObj.quantity = item.quantity;
+      itemObj.totalPrice = inventory[i].price * item.quantity;
+      console.log(itemObj);
+    }
+  }
+  return itemObj;
+});
