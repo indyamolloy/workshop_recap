@@ -169,7 +169,7 @@ const healthyTrolley = trolley.filter(function (item) {
 });
 
 //remove items from trolley that are recalled
-const removeRecalledTrolley = trolley.filter(function (item) {
+const removeRecalledTrolley = healthyTrolley.filter(function (item) {
   for (let i = 0; i < inventory.length; i++) {
     let items = [];
     if (inventory[i].id === item.id && inventory[i].recalled === false) {
@@ -179,6 +179,15 @@ const removeRecalledTrolley = trolley.filter(function (item) {
   }
 });
 
+const removeRecalledTrolleyRefactor = healthyTrolley.filter(function (item) {
+  inventory.forEach((inv) => {
+    let items = [];
+    if (inv.id === item.id && inv.recalled === false) {
+      items.push(item);
+      return items;
+    }
+  });
+});
 //create a receipt for customer
 
 const receiptArray = trolley.map(function (item) {
