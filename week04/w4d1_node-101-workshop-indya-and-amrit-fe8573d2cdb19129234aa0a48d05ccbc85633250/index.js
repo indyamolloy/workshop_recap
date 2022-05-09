@@ -1,13 +1,16 @@
 import myCollection from "./collection.js";
+import chalk from "chalk";
 
 function describeItem(item) {
+  const nameitem = chalk.cyan(myCollection[item].name);
+  const count = chalk.yellow(myCollection[item].count);
+  const whatlike = chalk.green(myCollection[item].name);
+
   if (myCollection[item].count === 1) {
-    console.log(
-      `I have a ${myCollection[item].name}.Here's what I like about it:  ${myCollection[item].whatILike}`
-    );
+    console.log(`I have a ${nameitem}.Here's what I like about it:  ${count}`);
   } else {
     console.log(
-      `I have ${myCollection[item].count} ${myCollection[item].name}'s. Here's what I like about them: ${myCollection[item].whatILike}`
+      `I have ${count} ${nameitem}'s. Here's what I like about them: ${whatlike}`
     );
   }
 }
