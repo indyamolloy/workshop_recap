@@ -49,7 +49,7 @@ app.post("/astronauts", async function (req, res) {
   await createAstronaut(result);
   res.json({
     success: true,
-    payload: result,
+    payload: await getAstronauts(),
   });
 });
 
@@ -59,10 +59,10 @@ app.post("/astronauts", async function (req, res) {
 appropriate path. */
 
 app.get("/astronauts/:id", async function (req, res) {
-  const response = await getAstronautById(Number(req.params.id));
+  const response = await getAstronautById(req.params.id);
   res.json({
     success: true,
-    payload: req.params,
+    payload: response,
   });
 });
 
@@ -71,14 +71,41 @@ app.get("/astronauts/:id", async function (req, res) {
 /* Write the request handler to perform the action and return the data from the function replaceAstronautById. Have this handler 
 listen to requests at the appropriate path. */
 
+app.put("/astronauts/:id", async (req, res) => {
+  const id = req.params.id;
+
+  await replaceAstronautById(id, req.body);
+  res.json({
+    success: true,
+    payload: req.body,
+  });
+});
+
 // Task 5
 
 /* Write the request handler to perform the action and return the data from the function deleteAstronautById. Have this handler 
 listen to requests at the appropriate path. */
 
+app.delete("/astronauts/:id", async (req, res) => {
+  const id = req.params.id;
+  await deleteAstronautById(id);
+  res.json({
+    success: true,
+    payload: "hi",
+  });
+});
+
 // Task 6
 
 /* Write the request handler to perform the action and return the data from the function updateAstronautById. Have this handler 
 listen to requests at the appropriate path. */
+
+app.patch("/astronauts/:id", async (req, res) => {
+  await replaceAstronautById(req.params.id, req.body);
+  res.json({
+    success: true,
+    payload: await replaceAstronautById(req.params.id, req.body),
+  });
+});
 
 export default app;
