@@ -6,6 +6,11 @@ const app = express();
 
 app.use(express.json());
 
+app.use(function (req, res, next) {
+  console.log("Request received!", req.body);
+  next();
+});
+
 app.get("/", (req, res) => {
   res.send("Hello, world!");
 });
