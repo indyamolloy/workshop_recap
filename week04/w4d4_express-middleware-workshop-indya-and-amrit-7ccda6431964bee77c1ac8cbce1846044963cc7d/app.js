@@ -6,8 +6,18 @@ const app = express();
 
 app.use(express.json());
 
+//middleware to console log the request body and message
 app.use(function (req, res, next) {
   console.log("Request received!", req.body);
+  next();
+});
+
+//message to log time of request
+app.use(function (req, res, next) {
+  const date = new Date().toString();
+  req.body.timestamp = date;
+
+  console.log(req.body.timestamp);
   next();
 });
 
