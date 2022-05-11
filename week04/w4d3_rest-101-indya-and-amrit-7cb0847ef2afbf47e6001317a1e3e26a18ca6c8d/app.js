@@ -49,7 +49,7 @@ app.post("/astronauts", async function (req, res) {
   await createAstronaut(result);
   res.json({
     success: true,
-    payload: await getAstronauts(),
+    payload: await createAstronaut(result),
   });
 });
 
@@ -77,7 +77,7 @@ app.put("/astronauts/:id", async (req, res) => {
   await replaceAstronautById(id, req.body);
   res.json({
     success: true,
-    payload: req.body,
+    payload: await replaceAstronautById(id, req.body),
   });
 });
 
@@ -91,7 +91,7 @@ app.delete("/astronauts/:id", async (req, res) => {
   await deleteAstronautById(id);
   res.json({
     success: true,
-    payload: "hi",
+    payload: await deleteAstronautById(id),
   });
 });
 
@@ -101,10 +101,10 @@ app.delete("/astronauts/:id", async (req, res) => {
 listen to requests at the appropriate path. */
 
 app.patch("/astronauts/:id", async (req, res) => {
-  await replaceAstronautById(req.params.id, req.body);
+  await updateAstronautById(req.params.id, req.body);
   res.json({
     success: true,
-    payload: await replaceAstronautById(req.params.id, req.body),
+    payload: await updateAstronautById(req.params.id, req.body),
   });
 });
 
