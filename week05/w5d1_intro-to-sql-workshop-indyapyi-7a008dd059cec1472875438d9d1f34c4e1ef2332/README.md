@@ -1,4 +1,5 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=6581006&assignment_repo_type=AssignmentRepo)
+
 # SQL Crud Operations
 
 ## Part 1: Houseplants 🌱🌵
@@ -92,7 +93,7 @@ Now that we have our table set up we can begin writing some of our own queries. 
 
 Happy day! You've just propagated your satin pothos successfully into another whole plant, so you need to update how many of that plant that you have in your database.
 
-👉 Delete your previous queries and write a query to update the row in your table that stores the information about your satin pothos plants and return the updated information about that row. 
+👉 Delete your previous queries and write a query to update the row in your table that stores the information about your satin pothos plants and return the updated information about that row.
 
 ### Task 3 - Deleting Rows
 
@@ -102,7 +103,13 @@ Ah... Maybe it's not such a happy day. You noticed that your Monstera Adansonii 
 
 👉 After this query, write another query to return all the entries in your table to check that the Monstera has gone!
 
-### Bonus: 
+DELETE FROM houseplants
+WHERE plant_id = 1
+RETURNING \*;
+
+SELECT \* FROM houseplants;
+
+### Bonus:
 
 👉 Design your own database with the data of your choosing (for example, your favorite books or movies or things you or your partner might collect); draft your table structure in Excel or Google Sheets and plan out what types of data go into each column.
 
