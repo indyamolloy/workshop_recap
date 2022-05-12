@@ -4,11 +4,11 @@ const router = express.Router();
 import { getAllBooks, getBookById, getBooksByTitle } from "../models/books.js";
 
 // GET all books
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   const { title, author } = req.query;
 
   if (title) {
-    const searchResults = getBooksByTitle(title);
+    const searchResults = await getBooksByTitle(title);
     res.json({
       success: true,
       message: `Searched titles for ${title}`,
@@ -17,15 +17,15 @@ router.get("/", (req, res) => {
     return;
   }
 
-  const books = getAllBooks();
+  const books = await getAllBooks();
 
   res.json({ success: true, message: `all books`, payload: books });
 });
 
 // GET specific book by id
-router.get("/:id", (req, res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const requestedBook = getBookById(id);
+  const requestedBook = await getBookById(id);
   res.json({
     success: true,
     message: `Found book ${id}`,

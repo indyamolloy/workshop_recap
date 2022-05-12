@@ -1,19 +1,20 @@
-import books from "../books-data.js";
+import query from "../db/index.js";
 
-export function getAllBooks() {
-  return books;
+export async function getAllBooks() {
+  const data = await query(`SELECT * FROM books;`);
+  console.log("data rows", data.rows);
+  return data.rows;
 }
 
-export function getBookById(id) {
-  return books.filter((book) => {
-    return book.id.toString() === id;
-  });
+export async function getBookById(id) {
+  const data = await query(`SELECT * FROM books WHERE id = $1;`, [id]);
+  return data.rows;
 }
 
-export function getBooksByTitle(title) {
-  return books.filter((book) => {
-    if (book.title.toLowerCase().includes(title.toLowerCase())) {
-      return true;
-    }
-  });
+export async function getBooksByTitle(title) {
+  const data = await query(
+    `SELECT * FROM books WHERE title ILIKE '%' ||$1 || '%';`,
+    [title]
+  );
+  return data.rows;
 }
