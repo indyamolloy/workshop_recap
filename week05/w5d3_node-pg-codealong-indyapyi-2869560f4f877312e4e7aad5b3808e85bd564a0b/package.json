@@ -7,7 +7,7 @@
     "start": " node -r dotenv/config ./bin/www.js",
     "dev": " nodemon -r dotenv/config ./bin/www.js",
     "dbcreatetable": "node -r dotenv/config ./db/scripts/createBooksTable.js",
-    "dbpopulatetable": " node -r dotenv/config ./db/scripts/populateBooksTable.js"
+    "dbpopulatetable": "node -r dotenv/config ./db/scripts/populateBooksTable.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

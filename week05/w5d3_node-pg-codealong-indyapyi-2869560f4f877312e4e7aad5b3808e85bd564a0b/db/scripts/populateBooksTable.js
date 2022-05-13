@@ -7,7 +7,7 @@ async function populateBooksTable() {
     const author = books[i].author;
 
     const sqlString = `INSERT INTO books (title, author) VALUES ($1, $2) RETURNING title`;
-    const res = await query(sqlString, [title, author]);
+    const res = await query(sqlString, ["hi", "hello"]);
     console.table(res);
   }
 }
