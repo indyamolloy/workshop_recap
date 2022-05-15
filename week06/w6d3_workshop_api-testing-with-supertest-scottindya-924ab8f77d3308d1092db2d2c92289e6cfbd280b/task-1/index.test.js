@@ -15,6 +15,13 @@ test("Has the structure { success: true }", function () {
   const apiResponse = {
     success: true,
   };
+
+  const actual = apiResponse;
+  const expected = {
+    success: true,
+  };
+
+  expect(actual).toStrictEqual(expected);
 });
 
 /**
