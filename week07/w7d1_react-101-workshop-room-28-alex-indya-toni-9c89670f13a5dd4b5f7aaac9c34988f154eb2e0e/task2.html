@@ -22,7 +22,11 @@
         alert("You clicked me!");
       }
       function Button() {
-        // code here
+        return React.createElement(
+          "button",
+          { className: "button", onClick: handleClick },
+          "Click this!"
+        );
       }
 
       ReactDOM.render(Button(), rootElement);
