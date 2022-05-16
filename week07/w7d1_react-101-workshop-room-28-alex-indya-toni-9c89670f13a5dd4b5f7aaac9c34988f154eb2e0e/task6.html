@@ -20,10 +20,23 @@
       const rootElement = document.querySelector("#root");
 
       function CheckBox(props) {
-        // render a checkbox that is controlled by the checked prop
+        if (props.checked) {
+          return <input type="checkbox" checked></input>;
+        } else {
+          return <input type="checkbox"></input>;
+        }
       }
 
-      ReactDOM.render(<CheckBox checked={true} />, rootElement);
+      function Button(props) {
+        if (props.isDisabled) {
+          return <button disabled={true}> Can't click </button>;
+        } else {
+          return <button> Can click </button>;
+        }
+      }
+
+      // ReactDOM.render(<CheckBox checked={true} />, rootElement);
+      ReactDOM.render(<Button isDisabled={true} />, rootElement);
     </script>
   </body>
 </html>
