@@ -20,11 +20,13 @@
       const rootElement = document.querySelector("#root");
 
       function Border(props) {
-        // render a div with some funky border styles and the children inside
+        return (
+          <div style={{ border: "2px pink dotted" }}>{props.children}</div>
+        );
       }
 
       function Title(props) {
-        // render a title
+        return <h1>{props.text} </h1>;
       }
 
       ReactDOM.render(
