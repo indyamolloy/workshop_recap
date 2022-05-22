@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import List from "../List";
 import Input from "../Input";
@@ -18,6 +18,10 @@ function App() {
     console.log("%cadd to do ", "color:lightgreen");
     setToDos([...toDos, text]);
   }
+
+  useEffect(() => {
+    document.title = `${toDos.length} things to do`;
+  }, [toDos]);
 
   return (
     <div className="App">
