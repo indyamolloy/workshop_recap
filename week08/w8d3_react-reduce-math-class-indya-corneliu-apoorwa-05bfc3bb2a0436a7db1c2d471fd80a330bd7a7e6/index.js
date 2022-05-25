@@ -36,7 +36,10 @@ in the array and then add up the array. The returned value should be
 the sum of the whole array with the odd numbers doubled.*/
 
 export function addWithDoubleOdds(numbers) {
-  //Your code here
+  const sum = numbers.reduce((a, b) => {
+    return b % 2 !== 0 ? b * 2 + a : b + a;
+  }, 0);
+  return sum;
 }
 
 /* 🌟 BONUS: 4. Reduce isn't just for numbers. In createObjectFromKeyValuePairs, 
