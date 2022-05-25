@@ -17,7 +17,7 @@ export function add(numbers) {
   const sum = numbers.reduce((a, b) => {
     return a + b;
   }, 0);
-  console.log(sum);
+
   return sum;
 }
 
@@ -25,7 +25,10 @@ export function add(numbers) {
 that have exactly two digits. Return the sum.*/
 
 export function addIfTwoDigits(numbers) {
-  //Your code here
+  const sum = numbers.reduce((a, b) => {
+    return b > 9 && b < 100 ? a + b : a;
+  }, 0);
+  return sum;
 }
 
 /* 👉 3. In addWithDoubleOdds, use reduce to double the odd numbers 
